@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejs auto tag</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://cdn-icons-png.flaticon.com/512/136/136530.png" alt=""
+            height="78">
+        <h1 class="display-5 fw-bold">EJS auto tag</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">copy your javascript code below:</p>
+            <textarea class="form-control" name="prova" id="testo" cols="30" spellcheck="false" rows="5"></textarea>
+            <div class="d-grid gap-2 mt-4 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" onclick="myFunction()">GO!</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            let testo = document.getElementById('testo').value;
+            let array = testo.split('\n');
+            let nuovoArr = [];
+            for (const i of array) {
+                let nuovoCampo = '<% ' + i + ' %>';
+                nuovoArr.push(nuovoCampo)
+            }
+            let finale = nuovoArr.join('\n');
+            console.log(finale);
+            document.getElementById('testo').value = finale;
+        }
+
+    </script>
+</body>
+
+</html>
